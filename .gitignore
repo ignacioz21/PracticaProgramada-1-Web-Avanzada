@@ -1,0 +1,13 @@
+## Ignore Visual Studio / Rider / .NET temporary files, build results, and folders
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+.DS_Store

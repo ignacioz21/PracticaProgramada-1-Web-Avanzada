@@ -1,0 +1,41 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.API", "Ticket.API\Ticket.API.csproj", "{AB8D440D-B2FD-4A52-B0A3-00A0C50F44BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstracciones", "Abstracciones\Abstracciones.csproj", "{B9A8954F-8806-4447-88F5-178416556644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA", "DA\DA.csproj", "{DA1D5A87-86D6-46F7-926E-C8014780C898}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flujo", "Flujo\Flujo.csproj", "{EEEBF116-2BEE-4801-8E87-F8F1A377DA30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D1E2F3A4-B5C6-47D8-9E0F-1A2B3C4D5E6F}"
+	ProjectSection(SolutionItems) = preProject
+		DECISIONES.md = DECISIONES.md
+		README.md = README.md
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB8D440D-B2FD-4A52-B0A3-00A0C50F44BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8D440D-B2FD-4A52-B0A3-00A0C50F44BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8D440D-B2FD-4A52-B0A3-00A0C50F44BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8D440D-B2FD-4A52-B0A3-00A0C50F44BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A8954F-8806-4447-88F5-178416556644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A8954F-8806-4447-88F5-178416556644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A8954F-8806-4447-88F5-178416556644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A8954F-8806-4447-88F5-178416556644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1D5A87-86D6-46F7-926E-C8014780C898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1D5A87-86D6-46F7-926E-C8014780C898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1D5A87-86D6-46F7-926E-C8014780C898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1D5A87-86D6-46F7-926E-C8014780C898}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEEBF116-2BEE-4801-8E87-F8F1A377DA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEEBF116-2BEE-4801-8E87-F8F1A377DA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEEBF116-2BEE-4801-8E87-F8F1A377DA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEEBF116-2BEE-4801-8E87-F8F1A377DA30}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

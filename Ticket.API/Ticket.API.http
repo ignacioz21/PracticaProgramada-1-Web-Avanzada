@@ -1,0 +1,81 @@
+@Ticket.API_HostAddress = http://localhost:5172
+
+### 1. Listar tickets paginados (por defecto: pagina=1, tamano=10, orden=-fecha)
+GET {{Ticket.API_HostAddress}}/api/tickets
+Accept: application/json
+
+### 2. Listar tickets con filtros (estado, prioridad, búsqueda q, orden y paginación)
+GET {{Ticket.API_HostAddress}}/api/tickets?estado=Abierto&prioridad=Alta&q=certificado&orden=-fecha&pagina=1&tamano=5
+Accept: application/json
+
+### 3. Error 400 ValidationProblem en GET /api/tickets (tamaño excede máximo de 40 en Variante 3)
+GET {{Ticket.API_HostAddress}}/api/tickets?pagina=0&tamano=50&orden=invalido
+Accept: application/json
+
+### 4. Obtener ticket por ID (200 OK + Header ETag)
+GET {{Ticket.API_HostAddress}}/api/tickets/1
+Accept: application/json
+
+### 5. Error 404 por restricción de ruta en ID inválido (:int:min(1))
+GET {{Ticket.API_HostAddress}}/api/tickets/abc
+Accept: application/json
+
+### 6. Obtener ticket por código válido de Variante 3 (HD-NNNN)
+GET {{Ticket.API_HostAddress}}/api/tickets/codigo/HD-0001
+Accept: application/json
+
+### 7. Error 404 por restricción de ruta personalizada en código inválido (no coincide con ^HD-\d{4}$)
+GET {{Ticket.API_HostAddress}}/api/tickets/codigo/TK-2026-0001
+Accept: application/json
+
+### 8. Crear un nuevo ticket (201 Created + Header Location, genera código HD-NNNN automático)
+POST {{Ticket.API_HostAddress}}/api/tickets
+Content-Type: application/json
+
+{
+  "titulo": "Fallo al sincronizar inventario en sucursal central",
+  "descripcion": "El servicio de sincronización devuelve timeout tras 60 segundos de espera.",
+  "prioridad": "Alta",
+  "clienteId": 101
+}
+
+### 9. Error 400 ValidationProblem al crear ticket con ClienteId inexistente y título vacío
+POST {{Ticket.API_HostAddress}}/api/tickets
+Content-Type: application/json
+
+{
+  "titulo": "",
+  "descripcion": "Corto",
+  "prioridad": "Media",
+  "clienteId": 999
+}
+
+### 10. Actualizar estado de un ticket (PATCH: Abierto -> EnProceso, asignando agente y prioridad)
+PATCH {{Ticket.API_HostAddress}}/api/tickets/1/estado
+Content-Type: application/json
+
+{
+  "estado": "EnProceso",
+  "agenteId": 202,
+  "prioridad": "Critica"
+}
+
+### 11. Error 409 Conflict por transición de estado inválida (ej. Cerrado -> Abierto en ticket #8)
+PATCH {{Ticket.API_HostAddress}}/api/tickets/8/estado
+Content-Type: application/json
+
+{
+  "estado": "Abierto"
+}
+
+### 12. Minimal API: Resumen de tickets agrupados por estado y prioridad (200 OK)
+GET {{Ticket.API_HostAddress}}/min/tickets/resumen
+Accept: application/json
+
+### 13. Minimal API: Reabrir un ticket en estado Resuelto (200 OK, incrementa Reaperturas)
+POST {{Ticket.API_HostAddress}}/min/tickets/4/reabrir
+Accept: application/json
+
+### 14. Minimal API: Error 409 Conflict al intentar reabrir un ticket que NO está Resuelto
+POST {{Ticket.API_HostAddress}}/min/tickets/1/reabrir
+Accept: application/json
